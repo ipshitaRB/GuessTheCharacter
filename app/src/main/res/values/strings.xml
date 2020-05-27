@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">Guess The Character</string>
+    <string name="get_ready_to">Get ready to</string>
+    <string name="play">Play</string>
+    <string name="guess_who">Guess who</string>
 </resources>

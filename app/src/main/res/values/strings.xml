@@ -3,4 +3,6 @@
     <string name="get_ready_to">Get ready to</string>
     <string name="play">Play</string>
     <string name="guess_who">Guess who</string>
+    <string name="score">Score:  $1%d</string>
+    <string name="skip">Skip</string>
 </resources>

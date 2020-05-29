@@ -2,34 +2,22 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/frameLayout"
+    android:id="@+id/constraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".game.GameFragment">
 
 
     <TextView
-        android:id="@+id/readyTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/get_ready_to"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.3" />
-
-    <TextView
         android:id="@+id/guessTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/guess_who"
+        android:text="@string/who_am_i"
+        android:textSize="@dimen/center_text_size"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/readyTextView"
-        app:layout_constraintVertical_bias="0.2"
-        android:textSize="@dimen/center_text_size"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/playButton"

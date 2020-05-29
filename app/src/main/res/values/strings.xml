@@ -7,4 +7,6 @@
     <string name="skip">Skip</string>
     <string name="submit">Submit</string>
     <string name="end_game">End game</string>
+    <string name="you_scored">You Scored</string>
+    <string name="play_again">Play Again</string>
 </resources>

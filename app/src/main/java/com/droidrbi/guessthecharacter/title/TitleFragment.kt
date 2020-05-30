@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.droidrbi.guessthecharacter.R
 import com.droidrbi.guessthecharacter.databinding.FragmentTitleBinding
 
@@ -27,6 +28,9 @@ class TitleFragment : Fragment() {
             inflater, R.layout.fragment_title, container, false
         )
 
+        titleBinding.playButton.setOnClickListener {
+            findNavController().navigate(TitleFragmentDirections.actionTitleFragmentToGameFragment())
+        }
         return titleBinding.root
     }
 

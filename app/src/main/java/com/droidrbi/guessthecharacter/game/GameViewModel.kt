@@ -5,6 +5,13 @@ import androidx.lifecycle.ViewModel
 
 class GameViewModel : ViewModel() {
 
+    lateinit var currentCharacter: Character
+
+    var score = 0
+
+
+    private lateinit var _characterList: MutableList<Character>
+
     init {
         Log.i("GameViewModel", "GameViewModel created")
     }

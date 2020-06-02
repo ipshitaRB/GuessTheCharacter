@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.NavHostFragment
 import com.droidrbi.guessthecharacter.R
 import com.droidrbi.guessthecharacter.databinding.FragmentGameBinding
 
@@ -48,7 +49,17 @@ class GameFragment : Fragment() {
     }
 
     private fun onEnd() {
+        gameFinished()
+    }
 
+    /**
+     * Called when the game is finished
+     */
+    private fun gameFinished() {
+        Toast.makeText(activity, "Game has just finished", Toast.LENGTH_SHORT).show()
+        val action = GameFragmentDirections.actionGameFragmentToScoreFragment()
+        action.score = _viewModel.score
+        NavHostFragment.findNavController(this).navigate(action)
     }
 
     private fun onSkip() {

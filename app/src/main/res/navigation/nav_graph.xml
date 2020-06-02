@@ -19,8 +19,9 @@
         android:label="fragment_game"
         tools:layout="@layout/fragment_game">
         <action
-            android:id="@+id/action_gameFragment_to_scoreFragment2"
+            android:id="@+id/action_gameFragment_to_scoreFragment"
             app:destination="@id/scoreFragment" />
+
     </fragment>
     <fragment
         android:id="@+id/scoreFragment"
@@ -30,5 +31,10 @@
         <action
             android:id="@+id/action_scoreFragment_to_gameFragment"
             app:destination="@id/gameFragment" />
+
+        <argument
+            android:name="score"
+            android:defaultValue="0"
+            app:argType="integer" />
     </fragment>
 </navigation>

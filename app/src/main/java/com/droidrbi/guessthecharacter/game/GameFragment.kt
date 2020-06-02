@@ -53,12 +53,11 @@ class GameFragment : Fragment() {
 
     private fun onSkip() {
         _viewModel.onSkip()
-
-
+        updateCharacterHint()
     }
 
     private fun onSubmit() {
-        if (_viewModel.isCorrect(_binding.textInputLayout.editText?.text.toString())) {
+        if (_viewModel.isCorrect(_binding.characterEditText.text.toString())) {
             _viewModel.onCorrect()
             Toast.makeText(context, getString(R.string.correct_answer), Toast.LENGTH_SHORT).show()
             updateCharacterHint()
@@ -73,9 +72,8 @@ class GameFragment : Fragment() {
     }
 
     private fun updateCharacterHint() {
-        _binding.editText.text?.clear()
-        _binding.editText.hint = _viewModel.currentCharacter.hint
-
+        _binding.characterEditText.text?.clear()
+        _binding.textInputLayout.hint = getString(R.string.hint, _viewModel.currentCharacter.hint)
     }
 
 }

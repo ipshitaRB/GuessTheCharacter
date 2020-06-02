@@ -14,6 +14,8 @@ class GameViewModel : ViewModel() {
 
     init {
         Log.i("GameViewModel", "GameViewModel created")
+        resetList()
+        nextCharacter()
     }
 
     override fun onCleared() {
@@ -40,5 +42,28 @@ class GameViewModel : ViewModel() {
         _characterList.shuffle()
     }
 
+    /**
+     * Moves to the next word in the list.
+     */
+    private fun nextCharacter() {
+        //Select and remove a word from the list
+        if (!_characterList.isEmpty()) {
+            currentCharacter = _characterList.removeAt(0)
+        }
+    }
 
+
+    /** Methods for updating the UI **/
+    fun onSkip() {
+        nextCharacter()
+    }
+
+    fun onCorrect() {
+        score++
+        nextCharacter()
+    }
+
+    fun isCorrect(name: String): Boolean {
+        return name.equals(currentCharacter.name, true)
+    }
 }

@@ -12,4 +12,5 @@
     <string name="try_again">Incorrect Answer. Try again</string>
     <string name="correct_answer">Correct Answer!</string>
     <string name="hint">Hint: %s</string>
+    <string name="game_finished">Game has just finished</string>
 </resources>

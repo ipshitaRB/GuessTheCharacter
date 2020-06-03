@@ -58,7 +58,7 @@ class GameFragment : Fragment() {
     private fun gameFinished() {
         Toast.makeText(activity, getString(R.string.game_finished), Toast.LENGTH_SHORT).show()
         val action = GameFragmentDirections.actionGameFragmentToScoreFragment()
-        action.score = _viewModel.score
+        action.score = _viewModel.score.value ?: 0
         NavHostFragment.findNavController(this).navigate(action)
     }
 
@@ -79,12 +79,13 @@ class GameFragment : Fragment() {
     }
 
     private fun updateScoreText() {
-        _binding.scoreTextView.text = getString(R.string.score, _viewModel.score)
+        _binding.scoreTextView.text = getString(R.string.score, _viewModel.score.value ?: 0)
     }
 
     private fun updateCharacterHint() {
         _binding.characterEditText.text?.clear()
-        _binding.textInputLayout.hint = getString(R.string.hint, _viewModel.currentCharacter.hint)
+        _binding.textInputLayout.hint =
+            getString(R.string.hint, _viewModel.currentCharacter.value?.hint)
     }
 
 }

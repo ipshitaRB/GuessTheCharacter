@@ -37,6 +37,7 @@ class ScoreFragment : Fragment() {
         _viewModel = ViewModelProvider(this, _viewModelFactory)
             .get(ScoreViewModel::class.java)
 
+        _binding.scoreTextView.text = _viewModel.score.toString()
 
         return _binding.root
     }

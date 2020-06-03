@@ -1,22 +1,29 @@
 package com.droidrbi.guessthecharacter.game
 
 import android.util.Log
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 class GameViewModel : ViewModel() {
 
-    val currentCharacter = MutableLiveData<Character>()
+    private val _currentCharacter = MutableLiveData<Character>()
 
-    val score = MutableLiveData<Int>()
+    val currentCharacter: LiveData<Character>
+        get() = _currentCharacter
+
+    private val _score = MutableLiveData<Int>()
+
+    val score: LiveData<Int>
+        get() = _score
 
 
     private lateinit var _characterList: MutableList<Character>
 
     init {
         Log.i("GameViewModel", "GameViewModel created")
-        currentCharacter.value = Character("", "")
-        score.value = 0
+        _currentCharacter.value = Character("", "")
+        _score.value = 0
         resetList()
         nextCharacter()
     }
@@ -51,7 +58,7 @@ class GameViewModel : ViewModel() {
     private fun nextCharacter() {
         //Select and remove a word from the list
         if (!_characterList.isEmpty()) {
-            currentCharacter.value = _characterList.removeAt(0)
+            _currentCharacter.value = _characterList.removeAt(0)
         }
     }
 
@@ -62,7 +69,7 @@ class GameViewModel : ViewModel() {
     }
 
     fun onCorrect() {
-        score.value = score.value?.plus(1)
+        _score.value = score.value?.plus(1)
         nextCharacter()
     }
 

@@ -50,6 +50,12 @@ class GameFragment : Fragment() {
             _binding.characterEditText.text?.clear()
             _binding.textInputLayout.hint = getString(R.string.hint, newCharacter.hint)
         })
+
+        _viewModel.gameFinished.observe(viewLifecycleOwner, Observer { hasFinished ->
+            if (hasFinished) {
+                gameFinished()
+            }
+        })
         // Inflate the layout for this fragment
         return _binding.root
     }
@@ -66,6 +72,7 @@ class GameFragment : Fragment() {
         val action = GameFragmentDirections.actionGameFragmentToScoreFragment()
         action.score = _viewModel.score.value ?: 0
         NavHostFragment.findNavController(this).navigate(action)
+        _viewModel.onGameFinishComplete()
     }
 
     private fun onSkip() {

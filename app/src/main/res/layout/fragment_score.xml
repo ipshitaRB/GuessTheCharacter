@@ -4,6 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".score.ScoreFragment">
 
+    <data>
+
+        <variable
+            name="scoreViewModel"
+            type="com.droidrbi.guessthecharacter.score.ScoreViewModel" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constrainLayout"
         android:layout_width="match_parent"

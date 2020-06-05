@@ -39,8 +39,9 @@ class GameFragment : Fragment() {
         _viewModel = ViewModelProvider(this).get(GameViewModel::class.java)
         Log.i("GameFragment", "ViewModelProvider called")
 
+        _binding.gameViewModel = _viewModel
+
         _binding.submitButton.setOnClickListener { onSubmit() }
-        _binding.skipButton.setOnClickListener { onSkip() }
         _binding.endGameButton.setOnClickListener { onEnd() }
         _viewModel.score.observe(viewLifecycleOwner, Observer { newScore ->
             _binding.scoreTextView.text = getString(R.string.score, newScore)
@@ -75,9 +76,6 @@ class GameFragment : Fragment() {
         _viewModel.onGameFinishComplete()
     }
 
-    private fun onSkip() {
-        _viewModel.onSkip()
-    }
 
     private fun onSubmit() {
         if (_viewModel.isCorrect(_binding.characterEditText.text.toString())) {

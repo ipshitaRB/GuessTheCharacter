@@ -20,6 +20,11 @@ class GameViewModel : ViewModel() {
 
     }
 
+    // Countdown time
+    private val _currentTime = MutableLiveData<Long>()
+    val currentTime: LiveData<Long>
+        get() = _currentTime
+
     private val _currentCharacter = MutableLiveData<Character>()
 
     val currentCharacter: LiveData<Character>

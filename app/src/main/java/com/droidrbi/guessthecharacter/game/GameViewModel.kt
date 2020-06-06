@@ -116,7 +116,7 @@ class GameViewModel : ViewModel() {
         if (!_characterList.isEmpty()) {
             _currentCharacter.value = _characterList.removeAt(0)
         } else {
-            onGameFinish()
+            resetList()
         }
     }
 

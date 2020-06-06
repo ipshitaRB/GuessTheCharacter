@@ -92,11 +92,11 @@ class GameViewModel : ViewModel() {
             ),
             Character(
                 "Han Solo",
-                "Millenium Falcon is my most prized possession"
+                "Millenium Falcon is my baby"
             ),
             Character(
-                "Indian Jones",
-                "I can not do without my whip and fedora"
+                "Indiana Jones",
+                "Professor of Archeology"
             ),
             Character(
                 "Harry Potter",

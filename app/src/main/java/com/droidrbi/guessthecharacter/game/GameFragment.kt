@@ -40,6 +40,9 @@ class GameFragment : Fragment() {
         Log.i("GameFragment", "ViewModelProvider called")
 
         _binding.gameViewModel = _viewModel
+        // Specify the fragment view as the lifecycle owner of the binding.
+// This is used so that the binding can observe LiveData updates
+        _binding.lifecycleOwner = viewLifecycleOwner
 
         _binding.submitButton.setOnClickListener { onSubmit() }
         _binding.endGameButton.setOnClickListener { onEnd() }

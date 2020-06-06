@@ -1,12 +1,15 @@
 package com.droidrbi.guessthecharacter.game
 
 import android.os.CountDownTimer
+import android.text.format.DateUtils
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
 
 class GameViewModel : ViewModel() {
+
 
     companion object {
 
@@ -22,12 +25,11 @@ class GameViewModel : ViewModel() {
     }
 
     private val timer: CountDownTimer
-
-
     // Countdown time
     private val _currentTime = MutableLiveData<Long>()
     val currentTime: LiveData<Long>
         get() = _currentTime
+
 
     private val _currentCharacter = MutableLiveData<Character>()
 
@@ -45,10 +47,19 @@ class GameViewModel : ViewModel() {
         get() = _gameFinished
 
 
+    // The String version of the current time
+    val currentTimeString = Transformations.map(currentTime) { time ->
+        DateUtils.formatElapsedTime(time)
+    }
     private lateinit var _characterList: MutableList<Character>
 
     init {
         Log.i("GameViewModel", "GameViewModel created")
+
+        _currentCharacter.value = Character("", "")
+        _score.value = 0
+        resetList()
+        nextCharacter()
         // Creates a timer which triggers the end of the game when it finishes
         timer = object : CountDownTimer(COUNTDOWN_TIME, ONE_SECOND) {
 
@@ -63,10 +74,6 @@ class GameViewModel : ViewModel() {
         }
 
         timer.start()
-        _currentCharacter.value = Character("", "")
-        _score.value = 0
-        resetList()
-        nextCharacter()
     }
 
     override fun onCleared() {

@@ -21,11 +21,13 @@
             android:id="@+id/textInputLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:hint="@string/hint"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            tools:hint="@string/hint">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/characterEditText"
@@ -41,6 +43,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/score"
+            android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -84,6 +87,18 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/submitButton"
             app:layout_constraintTop_toTopOf="@+id/submitButton" />
+
+        <TextView
+            android:id="@+id/timeLeftTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{gameViewModel.currentTimeString}"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toTopOf="@+id/textInputLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="30:00:00" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
